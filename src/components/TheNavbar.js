@@ -11,7 +11,7 @@ export default function TheNavbar() {
       <Container>
         {/* as={Link} means use react-router's Link component under the hood */}
         <Navbar.Brand as={Link} to="/">
-          Bit Commerce
+          Ella Handbag
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">

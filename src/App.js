@@ -1,12 +1,15 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Container, Row } from 'react-bootstrap'
 import { Routes, Route } from "react-router-dom";
 import TheNavbar from "./components/TheNavbar";
+import TheCarousel from "./components/TheCarousel";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Categories from "./pages/Categories";
 import Products from "./pages/Products";
 import Register from "./pages/Register";
+import ProductCard from "./components/ProductCard";
 
 import "./App.css";
 
@@ -26,6 +29,11 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
       </Routes>
+
+          <TheCarousel />
+          <ProductCard />
+          <TheNavbar />
+       
     </div>
   );
 }
