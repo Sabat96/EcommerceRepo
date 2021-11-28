@@ -3,13 +3,13 @@ import { setupListeners } from '@reduxjs/toolkit/query';
 import { ProductsApi } from "../services/ProductsApi";
 
 import userSlice from "../features/userSlice";
-// import CardSlice from "../features/CardSlice";
+ import ProductSlice from "../features/ProductSlice";
 
 export const store = configureStore({
   reducer: {
     /* count: countReducer */
     user: userSlice,
-    // card: CardSlice,
+     Product: ProductSlice,
     [ProductsApi.reducerPath]: ProductsApi.reducer,
 
   },
