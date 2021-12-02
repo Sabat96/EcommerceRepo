@@ -22,38 +22,38 @@ const MyProducts =
             text: "This is a longer card with supporting text below as a naturallead-in to additional content. This content is a little bit longer. ",
             image: "https://cdn.shopify.com/s/files/1/0152/4485/products/FW2138-Lidia-Midnight-Black-Front.jpg?v=1619155230"
         },
-        // {
-        //     id: 2,
-        //     title: "Vintage Handbag",
-        //     productType: 1,
-        //     price: 56,
-        //     text: "This is a longer card with supporting text below as a naturallead-in to additional content. This content is a little bit longer. ",
-        //     image: "https://cdn.shopify.com/s/files/1/0152/4485/products/FW2120-Hermelinda-Mountain-Dusk-closed.jpg?v=1627338652"
-        // },
-        // {
-        //     id: 3,
-        //     title: "Nike - Tech Small Items Bag (Dark Grey)",
-        //     productType: 1,
-        //     price: 83,
-        //     text: "This is a longer card with supporting text below as a naturallead-in to additional content. This content is a little bit longer. ",
-        //     image: "https://thumblr.uniid.it/product/181124/3d08a8ea6dc4.jpg"
-        // },
-        // {
-        //     id: 4,
-        //     title: "Nike - Tech Small Items Bag (Black)",
-        //     productType: 1,
-        //     price: 70,
-        //     text: "This is a longer card with supporting text below as a naturallead-in to additional content. This content is a little bit longer. ",
-        //     image: "https://www.rebelsport.com.au/dw/image/v2/BBRV_PRD/on/demandware.static/-/Sites-srg-internal-master-catalog/default/dwd24d5be5/images/57762401/Rebel_57762401_hi-res.jpg"
-        // },
-        // {
-        //     id: 5,
-        //     title: "classic Handbag",
-        //     productType: 1,
-        //     price: 55,
-        //     text: "This is a longer card with supporting text below as a naturallead-in to additional content. This content is a little bit longer. ",
-        //     image: "https://cdn.shopify.com/s/files/1/0152/4485/products/FW2120-Hermelinda-Mountain-Dusk-closed.jpg?v=1627338652"
-        // },
+        {
+            id: 2,
+            title: "Vintage Handbag",
+            productType: 1,
+            price: 56,
+            text: "This is a longer card with supporting text below as a naturallead-in to additional content. This content is a little bit longer. ",
+            image: "https://cdn.shopify.com/s/files/1/0152/4485/products/FW2120-Hermelinda-Mountain-Dusk-closed.jpg?v=1627338652"
+        },
+        {
+            id: 3,
+            title: "Nike - Tech Small Items Bag (Dark Grey)",
+            productType: 1,
+            price: 83,
+            text: "This is a longer card with supporting text below as a naturallead-in to additional content. This content is a little bit longer. ",
+            image: "https://thumblr.uniid.it/product/181124/3d08a8ea6dc4.jpg"
+        },
+        {
+            id: 4,
+            title: "Nike - Tech Small Items Bag (Black)",
+            productType: 1,
+            price: 70,
+            text: "This is a longer card with supporting text below as a naturallead-in to additional content. This content is a little bit longer. ",
+            image: "https://www.rebelsport.com.au/dw/image/v2/BBRV_PRD/on/demandware.static/-/Sites-srg-internal-master-catalog/default/dwd24d5be5/images/57762401/Rebel_57762401_hi-res.jpg"
+        },
+        {
+            id: 5,
+            title: "classic Handbag",
+            productType: 1,
+            price: 55,
+            text: "This is a longer card with supporting text below as a naturallead-in to additional content. This content is a little bit longer. ",
+            image: "https://cdn.shopify.com/s/files/1/0152/4485/products/FW2120-Hermelinda-Mountain-Dusk-closed.jpg?v=1627338652"
+        },
     ]
 
 export default function ProductDetail() {
@@ -61,68 +61,64 @@ export default function ProductDetail() {
     const dispatch = useDispatch();
     let { id } = useParams();
 
-    //   let MyProduct = MyProducts.filter(word => 
-    //     {
-    //         for(int i==0, i<= MyProducts.length; i++)
-    //         {
-
-    //         }
-    //         word.id === 1
-    //     });
-
-    let MyProduct = MyProducts.filter((product) => {
-        return product.id === id;
-    });
-
-
-    console.log(id, MyProducts, MyProduct);
-
     return (
         <div>
             <h1>hello {id} </h1>
-            {/* <Container> */}
             {MyProducts.map((product, index) => {
-                return (
-                    <div>
-                        {/* <h2 className="display-4 text-center mt-5 mb-3 deatilHeader ">Product Detail</h2> */}
-                        <Figure>
+                if (product.id == id) {
+                    return (
+                        <div>
+                            {/* <h2 className="display-4 text-center mt-5 mb-3 deatilHeader ">Product Detail</h2> */}
+                            <Figure>
 
-                            <Figure.Image className="AboutImage"
-                                width={500}
-                                height={350}
-                                alt="171x180"
-                                src={product.image}
-                            // src="holder.js/171x180"
-                            />
+                                <Figure.Image className="AboutImage"
+                                    width={500}
+                                    height={350}
+                                    alt="171x180"
+                                    src={product.image}
+                                // src="holder.js/171x180"
+                                />
 
-                            <Figure.Caption>
-                                <h3 >{product.title}</h3>
-                                <p>
-                                    {product.text}
-                                </p>
-                                <h3 className="ProductDetail">{product.price} $</h3>
-                                <div className="mb-2">
-                                    {/* <Button variant="secondary" size="lg" onClick={handleSubmit (product.Id)}> */}
-                                    <Button variant="secondary" size="lg"
-                                        onClick={() => {
-                                            dispatch(appendProduct(product));
-                                        }}>
+                                <Figure.Caption>
+                                    <h3 >{product.title}</h3>
+                                    <p>
+                                        {product.text}
+                                    </p>
+                                    <h3 className="ProductDetail">{product.price} $</h3>
+                                    <div className="mb-2">
+                                        {/* <Button variant="secondary" size="lg" onClick={handleSubmit (product.Id)}> */}
+                                        <Button variant="secondary" size="lg"
+                                            onClick={() => {
+                                                dispatch(appendProduct(product));
+                                            }}>
 
-                                        Add to Cart
-                                    </Button>
+                                            Add to Cart
+                                        </Button>
 
-                                    <Button variant="danger" size="lg"
-                                        onClick={() => {
-                                            dispatch(removeProduct(product.id));
-                                        }}>
+                                        <Button variant="danger" size="lg"
+                                            onClick={() => {
+                                                dispatch(removeProduct(product.id));
+                                            }}>
 
-                                        Add to Cart
-                                    </Button>
-                                </div>
-                            </Figure.Caption>
-                        </Figure>
-                    </div>
-                    // <section class="container-fluid text-center py-4 mt-4" id="about">
+                                            Add to Cart
+                                        </Button>
+                                    </div>
+                                </Figure.Caption>
+                            </Figure>
+                        </div>
+                    )
+                }
+            })}
+        </div>
+
+    )
+}
+
+
+
+
+
+ // <section class="container-fluid text-center py-4 mt-4" id="about">
                     //     <h2 class="display-4 text-center mt-5 mb-3">{product.title}</h2>
 
                     //     <div class="container ">
@@ -152,10 +148,3 @@ export default function ProductDetail() {
                     //         </div>
                     //     </div>
                     // </section>
-                )
-            })}
-            {/* </Container> */}
-        </div>
-
-    )
-}

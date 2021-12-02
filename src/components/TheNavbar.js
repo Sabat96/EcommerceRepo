@@ -4,6 +4,7 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { Link } from "react-router-dom";
+import { BsFillCartCheckFill } from "react-icons/bs";
 
 export default function TheNavbar() {
   return (
@@ -33,13 +34,13 @@ export default function TheNavbar() {
               <NavDropdown.Item as={Link} to="/crossbody">
               Cross Body
               </NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="/categories/*">
+              {/* <NavDropdown.Item as={Link} to="/categories/*">
                 Category 2
               </NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/categories/*">
                 Category 3
               </NavDropdown.Item>
-              <NavDropdown.Divider />
+              <NavDropdown.Divider /> */}
               <NavDropdown.Item as={Link} to="/categories">
                 All Categories
               </NavDropdown.Item>
@@ -47,15 +48,16 @@ export default function TheNavbar() {
           </Nav>
 
           <Nav>
+             <Nav.Link as={Link} to="/mycart">
+              <BsFillCartCheckFill />
+            </Nav.Link>
             <Nav.Link as={Link} to="/login">
               login
             </Nav.Link>
             <Nav.Link as={Link} to="/register">
               Register
             </Nav.Link>
-            <Nav.Link as={Link} to="/mycart">
-              cart
-            </Nav.Link>
+           
           </Nav>
         </Navbar.Collapse>
       </Container>

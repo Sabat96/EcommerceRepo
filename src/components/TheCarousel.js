@@ -18,7 +18,7 @@ export default function TheCarousel() {
                             <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
                         </Carousel.Caption>
                     </Carousel.Item>
-                    {/* <Carousel.Item interval={500}>
+                    <Carousel.Item interval={500}>
                         <img
                             className="d-block w-100 CarouselImage"
                             src="https://image.freepik.com/free-photo/colorful-abstract-nebula-space-background_53876-111356.jpg"
@@ -29,7 +29,7 @@ export default function TheCarousel() {
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                         </Carousel.Caption>
                     </Carousel.Item>
-                    <Carousel.Item>
+                    {/* <Carousel.Item>
                         <img
                             className="d-block w-100 CarouselImage"
                             src="https://image.freepik.com/free-photo/colorful-abstract-nebula-space-background_53876-111356.jpg"
