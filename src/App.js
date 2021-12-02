@@ -12,6 +12,7 @@ import Register from "./pages/Register";
 import CrossBody from "./pages/Crossbody";
 import ProductDetail from "./pages/ProductDetail";
 import TheFooter from "./components/TheFooter";
+import MyCart from "./pages/MyCart";
 
 import "./App.css";
 
@@ -27,9 +28,10 @@ function App() {
 
         <Route path="/categories" element={<Categories />} />
         <Route path="/products" element={<Products />} />
-
+        <Route path="/mycart" element={<MyCart />} />
         <Route path="/crossbody" element={<CrossBody />} />
-        <Route path="/productdetail" element={<ProductDetail />} />
+        <Route path="/productdetail/:id" element={<ProductDetail />} />
+        {/* <Route path="/productdetail" element={<ProductDetail />} /> */}
         {/* if the URL is /login  , render the Login component */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />

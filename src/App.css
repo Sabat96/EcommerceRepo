@@ -57,7 +57,7 @@
 .ProductDetail{
   font-family: Montserrat;
   font-weight: bold;
-  font-size: 16px;
+  /* font-size: 16px; */
   color: #ef8614;
 }
 
@@ -242,9 +242,9 @@ label.radio input:checked+span {
 }
 
 .btn {
-  background-color: transparent;
+  /* background-color: transparent;
   border-color: rgba(186, 216, 125, 0.863);
-  color: rgba(186, 216, 125, 0.863);
+  color: rgba(186, 216, 125, 0.863); */
   padding: 1.8vh 4.5vh;
   height: fit-content;
   border-radius: 3px

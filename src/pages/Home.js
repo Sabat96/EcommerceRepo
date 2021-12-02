@@ -7,48 +7,53 @@ import { Container, Row } from "react-bootstrap";
 
 const Products =
   [
-  //   {
-  //   title: "Vintage Handbag",
-  //   productType: 2,
-  //   price: 33,
-  //   text: "This is a longer card with supporting text below as a naturallead-in to additional content. This content is a little bit longer. ",
-  //   image: "https://cdn.shopify.com/s/files/1/0010/0915/6143/products/il_fullxfull.1167161057_289w_a5645c40-0283-4949-a130-532db9c7609a_1200x.jpg?v=1572126883"
-  // },
-  {
-    title: "Shoulder Bag",
-    productType: 2,
-    price: 40,
-    text: "This is a longer card with supporting text below as a naturallead-in to additional content. This content is a little bit longer. ",
-    image: "https://cdn.shopify.com/s/files/1/0152/4485/products/FW2138-Lidia-Midnight-Black-Front.jpg?v=1619155230"
-  },
-  {
-    title: "Vintage Handbag",
-    productType: 1,
-    price: 56,
-    text: "This is a longer card with supporting text below as a naturallead-in to additional content. This content is a little bit longer. ",
-    image: "https://cdn.shopify.com/s/files/1/0152/4485/products/FW2120-Hermelinda-Mountain-Dusk-closed.jpg?v=1627338652"
-  },
-  {
-    title: "Nike - Tech Small Items Bag (Dark Grey)",
-    productType: 1,
-    price: 83,
-    text: "This is a longer card with supporting text below as a naturallead-in to additional content. This content is a little bit longer. ",
-    image: "https://thumblr.uniid.it/product/181124/3d08a8ea6dc4.jpg"
-  },
-  {
-    title: "Nike - Tech Small Items Bag (Black)",
-    productType: 1,
-    price: 70,
-    text: "This is a longer card with supporting text below as a naturallead-in to additional content. This content is a little bit longer. ",
-    image: "https://www.rebelsport.com.au/dw/image/v2/BBRV_PRD/on/demandware.static/-/Sites-srg-internal-master-catalog/default/dwd24d5be5/images/57762401/Rebel_57762401_hi-res.jpg"
-  },
-  {
-    title: "classic Handbag",
-    productType: 1,
-    price: 55,
-    text: "This is a longer card with supporting text below as a naturallead-in to additional content. This content is a little bit longer. ",
-    image: "https://cdn.shopify.com/s/files/1/0152/4485/products/FW2120-Hermelinda-Mountain-Dusk-closed.jpg?v=1627338652"
-  },
+    //   {
+    //   title: "Vintage Handbag",
+    //   productType: 2,
+    //   price: 33,
+    //   text: "This is a longer card with supporting text below as a naturallead-in to additional content. This content is a little bit longer. ",
+    //   image: "https://cdn.shopify.com/s/files/1/0010/0915/6143/products/il_fullxfull.1167161057_289w_a5645c40-0283-4949-a130-532db9c7609a_1200x.jpg?v=1572126883"
+    // },
+    {
+      id: 1,
+      title: "Shoulder Bag",
+      productType: 2,
+      price: 40,
+      text: "This is a longer card with supporting text below as a naturallead-in to additional content. This content is a little bit longer. ",
+      image: "https://cdn.shopify.com/s/files/1/0152/4485/products/FW2138-Lidia-Midnight-Black-Front.jpg?v=1619155230"
+    },
+    {
+      id: 2,
+      title: "Vintage Handbag",
+      productType: 1,
+      price: 56,
+      text: "This is a longer card with supporting text below as a naturallead-in to additional content. This content is a little bit longer. ",
+      image: "https://cdn.shopify.com/s/files/1/0152/4485/products/FW2120-Hermelinda-Mountain-Dusk-closed.jpg?v=1627338652"
+    },
+    {
+      id: 3,
+      title: "Nike - Tech Small Items Bag (Dark Grey)",
+      productType: 1,
+      price: 83,
+      text: "This is a longer card with supporting text below as a naturallead-in to additional content. This content is a little bit longer. ",
+      image: "https://thumblr.uniid.it/product/181124/3d08a8ea6dc4.jpg"
+    },
+    {
+      id: 4,
+      title: "Nike - Tech Small Items Bag (Black)",
+      productType: 1,
+      price: 70,
+      text: "This is a longer card with supporting text below as a naturallead-in to additional content. This content is a little bit longer. ",
+      image: "https://www.rebelsport.com.au/dw/image/v2/BBRV_PRD/on/demandware.static/-/Sites-srg-internal-master-catalog/default/dwd24d5be5/images/57762401/Rebel_57762401_hi-res.jpg"
+    },
+    {
+      id: 5,
+      title: "classic Handbag",
+      productType: 1,
+      price: 55,
+      text: "This is a longer card with supporting text below as a naturallead-in to additional content. This content is a little bit longer. ",
+      image: "https://cdn.shopify.com/s/files/1/0152/4485/products/FW2120-Hermelinda-Mountain-Dusk-closed.jpg?v=1627338652"
+    },
   ]
 
 export default function Home() {
@@ -71,6 +76,7 @@ export default function Home() {
           {Products.map((product, index) => {
             return (
               <TheProduct
+                id={product.id}
                 image={product.image}
                 title={product.title}
                 text={product.text}

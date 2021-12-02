@@ -13,14 +13,14 @@ export default function ProductCard(props) {
                     {/* {Products.map((product, index) => {
                         return ( */}
                             <Col >
-                                <Card as={Link} to="/productdetail" className="hover-zoom">
+                                <Card as={Link} to={`/productdetail/${props.id}`} className="hover-zoom">
                                     <div >
                                         <Card.Img variant="top" src={props.image} />
                                     </div>
                                     <Card.Body>
                                         <Card.Title >{props.title}</Card.Title>
                                         <Card.Text>
-                                          ${props.price} 
+                                          ${props.price} {props.id}
                                         </Card.Text>
                                     </Card.Body>
                                 </Card>

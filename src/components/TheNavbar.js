@@ -53,6 +53,9 @@ export default function TheNavbar() {
             <Nav.Link as={Link} to="/register">
               Register
             </Nav.Link>
+            <Nav.Link as={Link} to="/mycart">
+              cart
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
