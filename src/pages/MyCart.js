@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { removeProduct } from "../features/ProductSlice";
 import { BsTrash } from "react-icons/bs";
 
-
+///_________________________________
 
 const styles = {
     mediaItem: {
