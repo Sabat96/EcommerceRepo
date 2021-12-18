@@ -18,9 +18,9 @@ export default function ProductCard(props) {
                                         <Card.Img variant="top" src={props.image} />
                                     </div>
                                     <Card.Body>
-                                        <Card.Title >{props.title}</Card.Title>
+                                        <Card.Title >{props.name}</Card.Title>
                                         <Card.Text>
-                                          ${props.price} {props.id}
+                                          ${props.price}
                                         </Card.Text>
                                     </Card.Body>
                                 </Card>

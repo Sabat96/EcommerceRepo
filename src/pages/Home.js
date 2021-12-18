@@ -4,6 +4,7 @@ import { useGetcategoryByNameQuery } from "../services/ProductsApi";
 import TheCarousel from "../components/TheCarousel";
 import TheProduct from "../components/ProductCard";
 import { Container, Row } from "react-bootstrap";
+import { useGetProductsQuery } from "../features/ecommerceApi.js";
 
 const Products =
   [
@@ -57,12 +58,13 @@ const Products =
   ]
 
 export default function Home() {
-  const { data, error, isLoading } = useGetcategoryByNameQuery('')
+  const { data, isError, isLoading } = useGetProductsQuery()
   if (isLoading) {
-    return <div> isLoding.......</div>
+    return <div> isLoading.......</div>
 
   }
   if (data) {
+
     //  return <div> {JSON.stringify(data)}</div>
 
   }
@@ -73,15 +75,16 @@ export default function Home() {
       <Container>
         <h2 class="display-4 text-center mt-5 mb-3">Our Products</h2>
         <Row xs={1} md={4} className="g-4">
-          {Products.map((product, index) => {
+          {data?.map((product, index) => {
             return (
               <TheProduct
-                id={product.id}
-                image={product.image}
-                title={product.title}
-                text={product.text}
+                 id={product._id}
+                 image={product.image}
+                // title={product.title}
+                // text={product.text}
                 price={product.price}
-                color={product.color} />
+                name={product.name}
+                category={product.category} />
             );
           })}
         </Row>

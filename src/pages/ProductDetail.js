@@ -3,6 +3,7 @@ import { useParams } from "react-router";
 import { Row, Col, Container, Button, Figure } from 'react-bootstrap'
 import { useDispatch, useSelector } from "react-redux";
 import { appendProduct, removeProduct } from "../features/ProductSlice";
+import { useGetProductByIdQuery } from '../features/ecommerceApi';
 
 
 const MyProducts =
@@ -61,54 +62,78 @@ export default function ProductDetail() {
     const dispatch = useDispatch();
     let { id } = useParams();
 
+    const { data, isError, isLoading } = useGetProductByIdQuery({ id })
+    let product = data;
+
+    if (isLoading) {
+        return <div> isLoading.......</div>
+
+    }
+    if (data) {
+
+        //  return <div> {JSON.stringify(data)}</div>
+
+    }
+
     return (
         <div>
-            <h1>hello {id} </h1>
-            {MyProducts.map((product, index) => {
-                if (product.id == id) {
-                    return (
-                        <div>
-                            {/* <h2 className="display-4 text-center mt-5 mb-3 deatilHeader ">Product Detail</h2> */}
-                            <Figure>
+            {/* <h1>hello {data[0].name} </h1> */}
+            {/* {data.map((product, index) => {
+                if (product.id == id) { */}
+            {/* return ( */}
+            <div>
+                {/* <h2 className="display-4 text-center mt-5 mb-3 deatilHeader ">Product Detail</h2> */}
+                <Figure>
+                    <Figure.Image className="AboutImage"
+                        width={500}
+                        height={350}
+                        alt="171x180"
+                        src={product.image}
+                    // src="holder.js/171x180"
+                    />
 
-                                <Figure.Image className="AboutImage"
-                                    width={500}
-                                    height={350}
-                                    alt="171x180"
-                                    src={product.image}
-                                // src="holder.js/171x180"
-                                />
+                    <Figure.Caption>
+                        <div className="row figureCap">
+                            <h3 >{product.name}</h3>
 
-                                <Figure.Caption>
-                                    <h3 >{product.title}</h3>
+                            <h3 className="ProductDetail">{product.price} $</h3>
+                            <div className="mb-2">
+                                {/* <Button variant="secondary" size="lg" onClick={handleSubmit (product.Id)}> */}
+                                <Button variant="secondary" size="lg"
+                                    // onClick={() => {
+                                    //     let cartProduct = { ...product, count: 1 };
+                                    //     dispatch(addToCart(cartProduct));
+                                    // }}
+
+                                    onClick={() => {
+                                        let cartProduct = { ...product, count: 1 };
+                                        dispatch(appendProduct(cartProduct));
+                                    }}>
+
+                                    Add to Cart
+                                </Button>
+
+                                <Button variant="danger" size="lg"
+                                    onClick={() => {
+                                        dispatch(removeProduct(product.id));
+                                    }}>
+
+                                    Add to Cart
+                                </Button>
+
+                                <div className="row">
                                     <p>
-                                        {product.text}
+                                        {product.detail}
                                     </p>
-                                    <h3 className="ProductDetail">{product.price} $</h3>
-                                    <div className="mb-2">
-                                        {/* <Button variant="secondary" size="lg" onClick={handleSubmit (product.Id)}> */}
-                                        <Button variant="secondary" size="lg"
-                                            onClick={() => {
-                                                dispatch(appendProduct(product));
-                                            }}>
-
-                                            Add to Cart
-                                        </Button>
-
-                                        <Button variant="danger" size="lg"
-                                            onClick={() => {
-                                                dispatch(removeProduct(product.id));
-                                            }}>
-
-                                            Add to Cart
-                                        </Button>
-                                    </div>
-                                </Figure.Caption>
-                            </Figure>
+                                </div>
+                            </div>
                         </div>
-                    )
-                }
-            })}
+                    </Figure.Caption>
+                </Figure>
+            </div>
+            {/* ) */}
+            {/* }
+            })} */}
         </div>
 
     )
