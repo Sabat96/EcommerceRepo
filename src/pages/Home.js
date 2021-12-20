@@ -5,6 +5,7 @@ import TheCarousel from "../components/TheCarousel";
 import TheProduct from "../components/ProductCard";
 import { Container, Row } from "react-bootstrap";
 import { useGetProductsQuery } from "../features/ecommerceApi.js";
+import Spinner from 'react-bootstrap/Spinner'
 
 const Products =
   [
@@ -60,7 +61,11 @@ const Products =
 export default function Home() {
   const { data, isError, isLoading } = useGetProductsQuery()
   if (isLoading) {
-    return <div> isLoading.......</div>
+    return <div>
+      <Spinner animation="border" role="status">
+        <span className="visually-hidden">Loading...</span>
+      </Spinner>
+    </div>
 
   }
   if (data) {
@@ -78,8 +83,8 @@ export default function Home() {
           {data?.map((product, index) => {
             return (
               <TheProduct
-                 id={product._id}
-                 image={product.image}
+                id={product._id}
+                image={product.image}
                 // title={product.title}
                 // text={product.text}
                 price={product.price}
@@ -88,6 +93,7 @@ export default function Home() {
             );
           })}
         </Row>
+        <Row></Row>
       </Container>
       {
       /* <h1> Home page</h1>

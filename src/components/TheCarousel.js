@@ -10,7 +10,7 @@ export default function TheCarousel() {
                     <Carousel.Item interval={1000}>
                         <img
                             className="d-block w-100 CarouselImage"
-                            src="https://image.freepik.com/free-photo/colorful-abstract-nebula-space-background_53876-111356.jpg"
+                            src="https://image.freepik.com/free-photo/sexy-attractive-stylish-blonde-woman-jeans-oversize-jacket-walking-against-vintage-green-wall-street_285396-8051.jpg"
                             alt="First slide"
                         />
                         <Carousel.Caption>

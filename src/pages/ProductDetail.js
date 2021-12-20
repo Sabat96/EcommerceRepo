@@ -96,7 +96,13 @@ export default function ProductDetail() {
                         <div className="row figureCap">
                             <h3 >{product.name}</h3>
 
-                            <h3 className="ProductDetail">{product.price} $</h3>
+                            
+                            <div className="row">
+                                <h3 className="ProductDetail">{product.price} $</h3>
+                                    <p>
+                                        {product.detail}
+                                    </p>
+                                </div>
                             <div className="mb-2">
                                 {/* <Button variant="secondary" size="lg" onClick={handleSubmit (product.Id)}> */}
                                 <Button variant="secondary" size="lg"
@@ -113,28 +119,75 @@ export default function ProductDetail() {
                                     Add to Cart
                                 </Button>
 
-                                <Button variant="danger" size="lg"
+                                {/* <Button variant="danger" size="lg"
                                     onClick={() => {
                                         dispatch(removeProduct(product.id));
                                     }}>
 
                                     Add to Cart
-                                </Button>
+                                </Button> */}
 
-                                <div className="row">
-                                    <p>
-                                        {product.detail}
-                                    </p>
-                                </div>
+                               
                             </div>
                         </div>
                     </Figure.Caption>
                 </Figure>
             </div>
+
+
+            {/* <section class="container-fluid text-center py-4 mt-4" id="about">
+                <h2 class="display-4 text-center mt-5 mb-3">{product.name}</h2>
+
+                <div class="container ">
+                    <div class="row">
+                        <div class="col-12 col-lg-6 col-xl-6 mt-4 centered bg-image">
+                            <div class="AboutImage">
+                                <img
+                                    src={product.image}
+                                    alt=""
+                                    width={500}
+                                    height={350}
+                                    srcset=""
+                                />
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-lg-6 col-xl-6 mt-5 AboutText">
+
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <h4 className="">Price: </h4><h4 className="">Price: </h4>
+                                </div>
+                                <div class="col-md-6">
+                                    <h3 className="ProductDetail">Price:  ${product.price}</h3>
+                                </div>
+                            </div>
+                            <p>
+                                {product.detail}
+                            </p>
+                            <div className="mb-2">
+                                <Button variant="secondary" size="lg"
+                                    // onClick={() => {
+                                    //     let cartProduct = { ...product, count: 1 };
+                                    //     dispatch(addToCart(cartProduct));
+                                    // }}
+
+                                    onClick={() => {
+                                        let cartProduct = { ...product, count: 1 };
+                                        dispatch(appendProduct(cartProduct));
+                                    }}>
+
+                                    Add to Cart
+                                </Button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section > */}
             {/* ) */}
             {/* }
             })} */}
-        </div>
+        </div >
 
     )
 }
@@ -142,34 +195,3 @@ export default function ProductDetail() {
 
 
 
-
- // <section class="container-fluid text-center py-4 mt-4" id="about">
-                    //     <h2 class="display-4 text-center mt-5 mb-3">{product.title}</h2>
-
-                    //     <div class="container ">
-                    //         <div class="row">
-                    //             <div class="col-12 col-lg-6 col-xl-6 mt-4 centered bg-image">
-                    //                 <div class="AboutImage">
-                    //                     <img
-                    //                         src={product.image}
-                    //                         alt=""
-                    //                         srcset=""
-                    //                     />
-                    //                 </div>
-                    //             </div>
-                    //             <div class="col-12 col-lg-6 col-xl-6 mt-5 AboutText">
-                    //                 <p>
-                    //                     {product.text}
-                    //                 </p>
-                    //                 <div className="mb-2">
-                    //                     {/* <Button variant="secondary" size="lg" onClick={handleSubmit (product.Id)}> */}
-                    //                     <Button variant="secondary" size="lg" >
-
-                    //                         Add to Cart
-                    //                     </Button>
-                    //                 </div>
-                    //             </div>
-
-                    //         </div>
-                    //     </div>
-                    // </section>

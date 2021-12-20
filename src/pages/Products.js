@@ -1,101 +1,116 @@
 import Tabs from "@restart/ui/esm/Tabs";
 import React from "react";
-import { Col, Container, Nav, Row, Tab } from "react-bootstrap";
+import { Col, Container, Nav, Row, Spinner, Tab } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
 import TheProduct from "../components/ProductCard";
+import { useGetProductsQuery } from "../features/ecommerceApi";
 
 
-
-const MyProducts =
-    [
-      {
-        title: "Shoulder Bag",
-        productType: 2,
-        price: 40,
-        text: "This is a longer card with supporting text below as a naturallead-in to additional content. This content is a little bit longer. ",
-        image: "https://cdn.shopify.com/s/files/1/0152/4485/products/FW2138-Lidia-Midnight-Black-Front.jpg?v=1619155230"
-    },
-    {
-        title: "Vintage Handbag",
-        productType: 1,
-        price: 56,
-        text: "This is a longer card with supporting text below as a naturallead-in to additional content. This content is a little bit longer. ",
-        image: "https://cdn.shopify.com/s/files/1/0152/4485/products/FW2120-Hermelinda-Mountain-Dusk-closed.jpg?v=1627338652"
-    },
-    {
-        title: "Nike - Tech Small Items Bag (Dark Grey)",
-        productType: 1,
-        price: 83,
-        text: "This is a longer card with supporting text below as a naturallead-in to additional content. This content is a little bit longer. ",
-        image: "https://thumblr.uniid.it/product/181124/3d08a8ea6dc4.jpg"
-    },
-    {
-        title: "Nike - Tech Small Items Bag (Black)",
-        productType: 1,
-        price: 70,
-        text: "This is a longer card with supporting text below as a naturallead-in to additional content. This content is a little bit longer. ",
-        image: "https://www.rebelsport.com.au/dw/image/v2/BBRV_PRD/on/demandware.static/-/Sites-srg-internal-master-catalog/default/dwd24d5be5/images/57762401/Rebel_57762401_hi-res.jpg"
-    },
-    {
-        title: "classic Handbag",
-        productType: 1,
-        price: 55,
-        text: "This is a longer card with supporting text below as a naturallead-in to additional content. This content is a little bit longer. ",
-        image: "https://cdn.shopify.com/s/files/1/0152/4485/products/FW2120-Hermelinda-Mountain-Dusk-closed.jpg?v=1627338652"
-    },
-   
-    ]
 
 export default function Products() {
+
+  const { data, isError, isLoading } = useGetProductsQuery()
+  if (isLoading) {
+    return <div>
+      <Spinner animation="border" role="status">
+        <span className="visually-hidden">Loading...</span>
+      </Spinner>
+    </div>
+
+  }
   return <div>
 
+    <Container>
 
-<Container>
-                <h2 class="display-4 text-center mt-5 mb-3">Our Products</h2>
-                <Row xs={1} md={4} className="g-4">
-                    {MyProducts.map((product, index) => {
-                       
-                        return (
-                            <TheProduct
-                                image={product.image}
-                                title={product.title}
-                                text={product.text}
-                                price={product.price}
-                                color={product.color} />
-                        );
-                    })}
-                
-                </Row>
-            </Container>
+      <div className=" ">
+        <div className="row">
+          {/* <div className="col-md-3">
+          <section className="panel">
+            <div className="panel-body">
+              <input type="text" placeholder="Keyword Search" className="form-control" />
+            </div>
+          </section>
+          <section className="panel">
+            <header className="panel-heading">
+              Category
+            </header>
+            <div className="panel-body">
+              <ul className="nav prod-cat">
+
+                <li>
+                  <a href="#"><i className="fa fa-angle-right"></i> Bags &amp; Purses</a>
+                </li>
+                <li>
+                  <a href="#"><i className="fa fa-angle-right"></i> Beauty</a>
+                </li>
+                <li>
+                  <a href="#"><i className="fa fa-angle-right"></i> Coat &amp; Jacket</a>
+                </li>
+
+              </ul>
+            </div>
+          </section>
+
+          <section className="panel">
+            <header className="panel-heading">
+              Filter
+            </header>
+            <div className="panel-body">
+              <form role="form product-form">
+                <div className="form-group">
+                  <label>Brand</label>
+                  <select className="form-control hasCustomSelect formControl1" >
+                    <option>Wallmart</option>
+                    <option>Catseye</option>
+                    <option>Moonsoon</option>
+                    <option>Textmart</option>
+                  </select>
+                  <span className="customSelect form-control formControl2" ><span className="customSelectInner formControl3" >Wallmart</span></span>
+                </div>
+                <button className="btn btn-primary" type="submit">Filter</button>
+              </form>
+            </div>
+          </section>
+        </div> */}
+        <div className="col-md-12">
+        <Row xs={1} md={5} className="g-4">
+          {data?.map((product, index) => {
+            return (
+              <TheProduct
+                id={product._id}
+                image={product.image}
+                // title={product.title}
+                // text={product.text}
+                price={product.price}
+                name={product.name}
+                category={product.category} />
+            );
+          })}
+        </Row>
+        </div>
+        </div>
+      </div>
+    </Container>
 
 
+    {/* <Container>
+      <h2 className="display-4 text-center mt-5 mb-3">Our Products</h2>
+      <Row xs={1} md={4} classNameName="g-4">
+        {data?.map((product, index) => {
 
+          return (
+            <TheProduct
+              image={product.image}
+              title={product.title}
+              text={product.text}
+              price={product.price}
+              color={product.color} />
+          );
+        })}
 
-    {/* __________________________________ Tab Pane____________________ */}
-    {/* <Tab.Container id="left-tabs-example" defaultActiveKey="first">
-      <Row>
-        <Col sm={3}>
-          <Nav variant="pills" className="flex-column">
-            <Nav.Item>
-              <Nav.Link eventKey="first"></Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link eventKey="second">Tab 2</Nav.Link>
-            </Nav.Item>
-          </Nav>
-        </Col>
-        <Col sm={9}>
-          <Tab.Content>
-            <Tab.Pane eventKey="first">
-              fffffffff
-              <Tab.Pane />
-            </Tab.Pane>
-            <Tab.Pane eventKey="second">
-              <Tab.Pane />
-            </Tab.Pane>
-          </Tab.Content>
-        </Col>
       </Row>
-    </Tab.Container> */}
+    </Container> */}
+
 
 
   </div>;

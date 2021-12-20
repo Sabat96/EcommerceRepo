@@ -73,7 +73,7 @@ export default function MyCart() {
                                                     {/* <BsTrash /> */}
                                                 </Button>
                                             </div>
-                                            <div className="col-md-2">&euro; {product.price}</div>
+                                            <div className="col-md-2">$ {product.price}</div>
                                             <div className="col-md-1" >
 
 

@@ -5,8 +5,16 @@ import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { Link } from "react-router-dom";
 import { BsFillCartCheckFill } from "react-icons/bs";
+import { useDispatch, useSelector } from "react-redux";
+
 
 export default function TheNavbar() {
+  const CartDetail = useSelector((state) => state.Product.value);
+  const dispatch = useDispatch();
+
+  const totalItems = CartDetail.reduce((prev, cur) => {
+      return prev + cur.count;
+  }, 0);
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
@@ -26,37 +34,19 @@ export default function TheNavbar() {
             {/* <Nav.Link as={Link} to="/productdetail">
               detail
             </Nav.Link> */}
-            <NavDropdown
-              id="nav-dropdown-dark-example"
-              title="Categories"
-              menuVariant="dark"
-            >
-              <NavDropdown.Item as={Link} to="/crossbody">
-              Cross Body
-              </NavDropdown.Item>
-              {/* <NavDropdown.Item as={Link} to="/categories/*">
-                Category 2
-              </NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="/categories/*">
-                Category 3
-              </NavDropdown.Item>
-              <NavDropdown.Divider /> */}
-              <NavDropdown.Item as={Link} to="/categories">
-                All Categories
-              </NavDropdown.Item>
-            </NavDropdown>
+          
           </Nav>
 
           <Nav>
              <Nav.Link as={Link} to="/mycart">
-              <BsFillCartCheckFill />
+              <BsFillCartCheckFill /> {}
             </Nav.Link>
-            <Nav.Link as={Link} to="/login">
+            {/* <Nav.Link as={Link} to="/login">
               login
             </Nav.Link>
             <Nav.Link as={Link} to="/register">
               Register
-            </Nav.Link>
+            </Nav.Link> */}
            
           </Nav>
         </Navbar.Collapse>
